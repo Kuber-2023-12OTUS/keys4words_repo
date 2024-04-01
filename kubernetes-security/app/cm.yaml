@@ -12,10 +12,13 @@ data:
     }
     http {
       server {
-          listen       8000;
-          server_name  homework.otus;
-          index  index.html;
-          root   /homework;
+          listen 8000;
+          server_name localhost;
+
+          location / {
+            root /homework;
+            index index.html;
+          }
 
           location /conf/file/ {
             alias /homework/conf/;
@@ -23,3 +26,13 @@ data:
           }
       }
     }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: folder-cm
+  namespace: homework
+data:
+  test.conf: |
+    host = 8.8.8.8
+    port = 12345 

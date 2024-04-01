@@ -3,9 +3,10 @@ kind: ServiceAccount
 metadata:
   name: cd
   namespace: homework
+automountServiceAccountToken: true
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: admin
   namespace: homework
@@ -21,18 +22,18 @@ metadata:
   namespace: homework
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: admin
 subjects:
 - kind: ServiceAccount
   name: cd
   namespace: homework
-# ---
-# apiVersion: v1
-# kind: Secret
-# metadata:
-#   annotations:
-#     kubernetes.io/service-account.name: cd
-#   name: cd-token
-#   namespace: homework
-# type: kubernetes.io/service-account-token
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations:
+    kubernetes.io/service-account.name: cd
+  name: cd-token
+  namespace: homework
+type: kubernetes.io/service-account-token

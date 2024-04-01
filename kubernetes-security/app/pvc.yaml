@@ -1,12 +1,19 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mystorage
+provisioner: k8s.io/minikube-hostpath
+reclaimPolicy: Retain
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: hw5-pvc
+  name: mystorage
   namespace: homework
 spec:
   accessModes:    
     - ReadWriteOnce
-  storageClassName: hw5
+  storageClassName: mystorage
   volumeMode: Filesystem  
   resources:    
     requests:      
