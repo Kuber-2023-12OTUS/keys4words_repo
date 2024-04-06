@@ -1,0 +1,21 @@
+apiVersion: v2
+name: app
+description: A Helm chart for my app
+type: application
+version: 0.0.1
+appVersion: "1.0.0"
+dependencies:
+- name: "app"
+  condition: app.enabled
+  version: "^0.0.1"
+- name: "loki"
+  condition: loki.enabled
+  repository: https://grafana.github.io/helm-charts
+  version: "^2.15.2"
+- name: "promtail"
+  condition: promtail.enabled
+  repository: https://grafana.github.io/helm-charts
+  version: "^6.7.4"
+maintainers:
+  - name: keys4words
+    email: mail@example.com
