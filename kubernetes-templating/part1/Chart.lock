@@ -1,0 +1,12 @@
+dependencies:
+- name: app
+  repository: ""
+  version: ^0.0.1
+- name: loki
+  repository: https://grafana.github.io/helm-charts
+  version: 2.16.0
+- name: promtail
+  repository: https://grafana.github.io/helm-charts
+  version: 6.15.5
+digest: sha256:c1f66239df5a3407f635aa23f463b601bdc3f1da79f576c5cfb0f7aa53cfaa8e
+generated: "2024-04-03T21:18:47.6157499+03:00"

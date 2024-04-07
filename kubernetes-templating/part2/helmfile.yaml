@@ -1,0 +1,23 @@
+
+---
+bases:
+  - templates/template.yaml
+
+environments:
+  dev:
+    values:
+    - envs/dev/values.yaml
+  prod:
+    values:
+    - envs/prod/values.yaml
+
+---
+bases:
+  - releases/base.yaml
+
+
+# hooks:
+#   - events: ["prepare"]
+#     showlogs: true
+#     # command: "scripts/create_namespase.sh"
+#     args: [{{ .Values.namespace }}]

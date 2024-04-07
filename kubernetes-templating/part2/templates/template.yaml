@@ -1,0 +1,6 @@
+templates:
+  default:
+    missingFileHandler: Warn
+    wait: true
+    values:
+      - envs/{{`{{ .Environment.Name }}`}}/values.yaml

@@ -1,0 +1,10 @@
+
+helmDefaults:
+  wait: false
+  timeout: 1600
+  createNamespace: true
+
+{{ (include "base_repositories" .) }}
+
+releases:
+{{- (include "base_release" .) }}
